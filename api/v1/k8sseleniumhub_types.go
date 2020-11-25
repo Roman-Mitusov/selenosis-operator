@@ -17,6 +17,7 @@ limitations under the License.
 package v1
 
 import (
+	apiv1 "k8s.io/api/core/v1"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 )
 
@@ -28,8 +29,65 @@ type K8sSeleniumHubSpec struct {
 	// INSERT ADDITIONAL SPEC FIELDS - desired state of cluster
 	// Important: Run "make" to regenerate code after modifying this file
 
-	// Foo is an example field of K8sSeleniumHub. Edit K8sSeleniumHub_types.go to remove/update
-	Foo string `json:"foo,omitempty"`
+	// Selenoid ui port
+	SelenoidUiPort int32 `json:"selenoidUiPort"`
+	// Selenosis port
+	SelenosisPort int32 `json:"selenosisPort"`
+	// Browsers Proxy port
+	BrowsersProxyPort int32 `json:"browsersProxyPort"`
+	// Selenosis image name
+	SelenosisImage string `json:"selenosisImage"`
+	// Selenoid UI image name
+	SelenoidUiImage string `json:"selenoidUiImage"`
+	// Selenoid UI Adapter image name
+	SelenoidUiAdapterImage string `json:"selenoidUiAdapterImage"`
+	// Browsers Proxy image name
+	BrowsersProxyImage string `json:"browsersProxyImage"`
+	// Image pull secret name. Use it only when you have images stored in private registry
+	ImagePullSecretName string `json:"imagePullSecretName,omitempty"`
+	// Service name fro browsers headless service
+	BrowsersServiceName string `json:"browsersServiceName"`
+	// Service name for selenosis service
+	SelenosisServiceName string `json:"selenosisServiceName"`
+	// Service name for selenoid ui service
+	SelenoidUiServiceName string `json:"selenoidUiServiceName"`
+	// Browsers config definition
+	BrowsersConfig BrowsersLayout `json:"browsersConfig"`
+}
+
+//Meta describes standart metadata
+type Meta struct {
+	Labels      map[string]string `json:"labels,omitempty"`
+	Annotations map[string]string `json:"annotations,omitempty"`
+}
+
+//Spec describes specification for Service
+type Spec struct {
+	Resources    apiv1.ResourceRequirements `json:"resources,omitempty"`
+	HostAliases  []apiv1.HostAlias          `json:"hostAliases,omitempty"`
+	EnvVars      []apiv1.EnvVar             `json:"envVars,omitempty"`
+	NodeSelector map[string]string          `json:"nodeSelector,omitempty"`
+	Affinity     apiv1.Affinity             `json:"affinity,omitempty"`
+	DNSConfig    apiv1.PodDNSConfig         `json:"dnsConfig,omitempty"`
+}
+
+//Browsers Layout ...
+type BrowsersLayout struct {
+	DefaultSpec    Spec                   `json:"spec"`
+	Meta           Meta                   `json:"meta"`
+	Path           string                 `json:"path"`
+	DefaultVersion string                 `json:"defaultVersion"`
+	Versions       map[string]BrowserSpec `json:"versions"`
+}
+
+//BrowserSpec describes settings for Service
+type BrowserSpec struct {
+	BrowserName    string `json:"-"`
+	BrowserVersion string `json:"-"`
+	Image          string `json:"image"`
+	Path           string `json:"path"`
+	Meta           Meta   `json:"meta"`
+	Spec           Spec   `json:"spec"`
 }
 
 // K8sSeleniumHubStatus defines the observed state of K8sSeleniumHub
