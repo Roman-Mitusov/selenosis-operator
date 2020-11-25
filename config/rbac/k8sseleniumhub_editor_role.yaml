@@ -5,7 +5,7 @@ metadata:
   name: k8sseleniumhub-editor-role
 rules:
 - apiGroups:
-  - selenium.k8s.io.selenium.k8s.io
+  - selenium.k8s.io
   resources:
   - k8sseleniumhubs
   verbs:

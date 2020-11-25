@@ -5,4 +5,4 @@ kind: CustomResourceDefinition
 metadata:
   annotations:
     cert-manager.io/inject-ca-from: $(CERTIFICATE_NAMESPACE)/$(CERTIFICATE_NAME)
-  name: k8sseleniumhubs.selenium.k8s.io.selenium.k8s.io
+  name: selenium.k8s.io

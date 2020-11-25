@@ -34,8 +34,8 @@ type K8sSeleniumHubReconciler struct {
 	Scheme *runtime.Scheme
 }
 
-// +kubebuilder:rbac:groups=selenium.k8s.io.selenium.k8s.io,resources=k8sseleniumhubs,verbs=get;list;watch;create;update;patch;delete
-// +kubebuilder:rbac:groups=selenium.k8s.io.selenium.k8s.io,resources=k8sseleniumhubs/status,verbs=get;update;patch
+// +kubebuilder:rbac:groups=selenium.k8s.io,resources=k8sseleniumhubs,verbs=get;list;watch;create;update;patch;delete
+// +kubebuilder:rbac:groups=selenium.k8s.io,resources=k8sseleniumhubs/status,verbs=get;update;patch
 
 func (r *K8sSeleniumHubReconciler) Reconcile(req ctrl.Request) (ctrl.Result, error) {
 	_ = context.Background()
