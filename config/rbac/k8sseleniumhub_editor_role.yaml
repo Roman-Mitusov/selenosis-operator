@@ -1,0 +1,24 @@
+# permissions for end users to edit k8sseleniumhubs.
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: k8sseleniumhub-editor-role
+rules:
+- apiGroups:
+  - selenium.k8s.io.selenium.k8s.io
+  resources:
+  - k8sseleniumhubs
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - selenium.k8s.io.selenium.k8s.io
+  resources:
+  - k8sseleniumhubs/status
+  verbs:
+  - get

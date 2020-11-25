@@ -1,0 +1,7 @@
+domain: selenium.k8s.io
+repo: selenosis-operator
+resources:
+- group: selenium.k8s.io
+  kind: K8sSeleniumHub
+  version: v1
+version: "2"

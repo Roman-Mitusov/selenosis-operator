@@ -1,0 +1,7 @@
+apiVersion: selenium.k8s.io.selenium.k8s.io/v1
+kind: K8sSeleniumHub
+metadata:
+  name: k8sseleniumhub-sample
+spec:
+  # Add fields here
+  foo: bar
