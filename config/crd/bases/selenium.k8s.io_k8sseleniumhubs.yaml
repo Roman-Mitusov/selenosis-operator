@@ -1835,15 +1835,9 @@ spec:
           required:
           - browsersConfig
           - browsersProxyImage
-          - browsersProxyPort
-          - browsersServiceName
           - selenoidUiAdapterImage
           - selenoidUiImage
-          - selenoidUiPort
-          - selenoidUiServiceName
           - selenosisImage
-          - selenosisPort
-          - selenosisServiceName
           type: object
         status:
           description: K8sSeleniumHubStatus defines the observed state of K8sSeleniumHub

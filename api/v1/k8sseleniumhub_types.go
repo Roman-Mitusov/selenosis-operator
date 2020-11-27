@@ -33,11 +33,11 @@ type K8sSeleniumHubSpec struct {
 	// +kubebuilder:validation:Minimum=1
 	SelenosisReplicas int32 `json:"selenosisReplicas,omitempty"`
 	// Selenoid ui port
-	SelenoidUiPort int32 `json:"selenoidUiPort"`
+	SelenoidUiPort int32 `json:"selenoidUiPort,omitempty"`
 	// Selenosis port
-	SelenosisPort int32 `json:"selenosisPort"`
+	SelenosisPort int32 `json:"selenosisPort,omitempty"`
 	// Browsers Proxy port
-	BrowsersProxyPort int32 `json:"browsersProxyPort"`
+	BrowsersProxyPort int32 `json:"browsersProxyPort,omitempty"`
 	// Selenosis image name
 	SelenosisImage string `json:"selenosisImage"`
 	// Selenoid UI image name
@@ -49,11 +49,11 @@ type K8sSeleniumHubSpec struct {
 	// Image pull secret name. Use it only when you have images stored in private registry
 	ImagePullSecretName string `json:"imagePullSecretName,omitempty"`
 	// Service name fro browsers headless service
-	BrowsersServiceName string `json:"browsersServiceName"`
+	BrowsersServiceName string `json:"browsersServiceName,omitempty"`
 	// Service name for selenosis service
-	SelenosisServiceName string `json:"selenosisServiceName"`
+	SelenosisServiceName string `json:"selenosisServiceName,omitempty"`
 	// Service name for selenoid ui service
-	SelenoidUiServiceName string `json:"selenoidUiServiceName"`
+	SelenoidUiServiceName string `json:"selenoidUiServiceName,omitempty"`
 	// Browsers config definition
 	BrowsersConfig BrowsersLayout `json:"browsersConfig"`
 }
