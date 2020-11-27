@@ -97,6 +97,10 @@ type BrowserSpec struct {
 type K8sSeleniumHubStatus struct {
 	// INSERT ADDITIONAL STATUS FIELD - define observed state of cluster
 	// Important: Run "make" to regenerate code after modifying this file
+	SelenosisServiceReady        bool  `json:"selenosisServiceReady"`
+	SelenoidUiServiceReady       bool  `json:"selenoidUiServiceReady"`
+	HeadlessBrowsersServiceReady bool  `json:"headlessBrowsersServiceReady"`
+	SelenosisReplicas            int32 `json:"selenosisReplicas"`
 }
 
 // +kubebuilder:object:root=true

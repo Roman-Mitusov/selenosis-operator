@@ -1847,6 +1847,24 @@ spec:
           type: object
         status:
           description: K8sSeleniumHubStatus defines the observed state of K8sSeleniumHub
+          properties:
+            headlessBrowsersServiceReady:
+              type: boolean
+            selenoidUiServiceReady:
+              type: boolean
+            selenosisReplicas:
+              format: int32
+              type: integer
+            selenosisServiceReady:
+              description: 'INSERT ADDITIONAL STATUS FIELD - define observed state
+                of cluster Important: Run "make" to regenerate code after modifying
+                this file'
+              type: boolean
+          required:
+          - headlessBrowsersServiceReady
+          - selenoidUiServiceReady
+          - selenosisReplicas
+          - selenosisServiceReady
           type: object
       type: object
   version: v1
