@@ -29,6 +29,9 @@ type K8sSeleniumHubSpec struct {
 	// INSERT ADDITIONAL SPEC FIELDS - desired state of cluster
 	// Important: Run "make" to regenerate code after modifying this file
 
+	// Selenosis replicas
+	// +kubebuilder:validation:Minimum=1
+	SelenosisReplicas int32 `json:"selenosisReplicas,omitempty"`
 	// Selenoid ui port
 	SelenoidUiPort int32 `json:"selenoidUiPort"`
 	// Selenosis port
@@ -73,8 +76,8 @@ type Spec struct {
 
 //Browsers Layout ...
 type BrowsersLayout struct {
-	DefaultSpec    Spec                   `json:"spec"`
-	Meta           Meta                   `json:"meta"`
+	DefaultSpec    Spec                   `json:"spec,omitempty"`
+	Meta           Meta                   `json:"meta,omitempty"`
 	Path           string                 `json:"path"`
 	DefaultVersion string                 `json:"defaultVersion"`
 	Versions       map[string]BrowserSpec `json:"versions"`
@@ -86,8 +89,8 @@ type BrowserSpec struct {
 	BrowserVersion string `json:"-"`
 	Image          string `json:"image"`
 	Path           string `json:"path"`
-	Meta           Meta   `json:"meta"`
-	Spec           Spec   `json:"spec"`
+	Meta           Meta   `json:"meta,omitempty"`
+	Spec           Spec   `json:"spec,omitempty"`
 }
 
 // K8sSeleniumHubStatus defines the observed state of K8sSeleniumHub

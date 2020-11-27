@@ -1782,16 +1782,12 @@ spec:
                         type: object
                     required:
                     - image
-                    - meta
                     - path
-                    - spec
                     type: object
                   type: object
               required:
               - defaultVersion
-              - meta
               - path
-              - spec
               - versions
               type: object
             browsersProxyImage:
@@ -1827,6 +1823,11 @@ spec:
             selenosisPort:
               description: Selenosis port
               format: int32
+              type: integer
+            selenosisReplicas:
+              description: Selenosis replicas
+              format: int32
+              minimum: 1
               type: integer
             selenosisServiceName:
               description: Service name for selenosis service
