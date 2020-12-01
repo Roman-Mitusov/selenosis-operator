@@ -195,7 +195,7 @@ func createSelenosisArgs(hubspec *seleniumk8siov1.K8sSeleniumHub) []string {
 		hubspec.Spec.BrowserLimit,
 	}
 	if hubspec.Spec.ImagePullSecretName != "" {
-		selenosisCmdArgs = append(selenosisCmdArgs, hubspec.Spec.ImagePullSecretName)
+		selenosisCmdArgs = append(selenosisCmdArgs, "--image-pull-secret-name", hubspec.Spec.ImagePullSecretName)
 	}
 	return selenosisCmdArgs
 }
