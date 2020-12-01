@@ -34,6 +34,9 @@ spec:
         spec:
           description: K8sSeleniumHubSpec defines the desired state of K8sSeleniumHub
           properties:
+            browserLimit:
+              description: Browser limit
+              type: string
             browsersConfig:
               description: Browsers config definition
               properties:
@@ -1833,6 +1836,7 @@ spec:
               description: Service name for selenosis service
               type: string
           required:
+          - browserLimit
           - browsersConfig
           - browsersProxyImage
           - selenoidUiAdapterImage

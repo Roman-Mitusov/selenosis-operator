@@ -38,6 +38,8 @@ type K8sSeleniumHubSpec struct {
 	SelenosisPort int32 `json:"selenosisPort,omitempty"`
 	// Browsers Proxy port
 	BrowsersProxyPort int32 `json:"browsersProxyPort,omitempty"`
+	// Browser limit
+	BrowserLimit string `json:"browserLimit"`
 	// Selenosis image name
 	SelenosisImage string `json:"selenosisImage"`
 	// Selenoid UI image name
